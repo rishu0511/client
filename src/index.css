@@ -1,13 +1,62 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.canvas{
+  position: absolute;
+  top:0;
+  left:0;
+  background-color: white;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.Box{
+  background-color: rgb(65, 121, 226);
+}
+button:hover {
+  background-color: #7AB2D3;
+}
+.FORM{
+   position: relative;
+   top:-5px;
+   left:0;
+    width:100%;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #4A628A;
+}
+.Input{
+    width:25%;
+    height:30px;
+    border: 3px solid #113946;
+    border-radius: 10px;
+  }
+.bottom_box{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+  align-items: center;
+  width:100%;
+  height:170px;
+  background-color: #4A628A;
+}
+.para{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top :0;
+  width:94px;
+  font-size: 15px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.last_p{
+  top :0;
+  left:0;
+  display: flex;
+  justify-content: space-around;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  width:100px;
+  font-size: 15px;
+}
+.rain_c{
+  background-color:#3f5986;
 }
