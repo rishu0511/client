@@ -9,14 +9,14 @@ export default function Canvasb(props) {
     context.fill()
     clock(context,props.TEM);
     context.font = "12px Arial ";
-    context.fillStyle = "darkblue";
-    context.fillText(props.DES+": " + Math.floor(props.TEM )+"° C" , 12, 129);
+    context.fillStyle = "black";
+    context.fillText(props.DES+": " + Math.floor(props.TEM )+"° C" , 10, 155);
   });
   function clock(ctx,temp) {
     ctx.save();
     ctx.clearRect(0, 0, 270, 250);
-    ctx.translate(65, 60);
-    ctx.scale(0.3, 0.3);
+    ctx.translate(78, 73);
+    ctx.scale(0.4, 0.4);
     ctx.rotate(Math.PI / 1.32);
     ctx.strokeStyle = "black";
     ctx.fillStyle = "white";
@@ -96,5 +96,5 @@ export default function Canvasb(props) {
     ctx.restore();
   }
 
-  return <canvas ref={canvasRef} width={150} height={130} />;
+  return <canvas ref={canvasRef} width={160} height={155} />;
 }

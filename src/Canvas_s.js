@@ -27,11 +27,11 @@ export default function Canvass(props) {
     // Fill rectangle with gradient
     context.fillStyle = grad;
     context.fillRect(1, 1, width - 20, 600);
-    context.font = "50px Arial";
+    context.font = "20px Arial";
     context.fillStyle = "black";
-    context.fillText(props.PLACE,900,80);
-    context.fillText(props.TEMP+" °C",900,500);
-    context.fillText(props.DESCRIPT,200,500);
+    context.fillText(props.PLACE,250,80);
+    context.fillText(props.TEMP+" °C",250,500);
+    context.fillText(props.DESCRIPT,20,500);
   });
 
   return <canvas class ="rain" ref={canvasRef} width={Width-16} height={600} />;

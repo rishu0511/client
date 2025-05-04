@@ -67,11 +67,11 @@ export default function Canvasr(props) {
         ctx.closePath()
         ctx.restore()
         ctx.save()
-        context.font = "50px Arial";
+        context.font = "20px Arial";
         ctx.fillStyle = "skyblue";
-        ctx.fillText(props.PLACE,900,80);
-        ctx.fillText(props.TEMP+" °C",900,500);
-        ctx.fillText(props.DESCRIPT,200,500);
+        ctx.fillText(props.PLACE,250,80);
+        ctx.fillText(props.TEMP+" °C",250,500);
+        ctx.fillText(props.DESCRIPT,20,500);
         ctx.restore()
          // Minute marks
         window.requestAnimationFrame(clock);

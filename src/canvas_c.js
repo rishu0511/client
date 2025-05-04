@@ -52,11 +52,11 @@ export default function Canvasc(props) {
       "lightblue",
       context
     );
-    context.font = "50px Arial";
+    context.font = "20px Arial";
     context.fillStyle = "skyblue";
-    context.fillText(props.PLACE,900,80);
-    context.fillText(props.TEMP+" °C",900,500);
-    context.fillText(props.DESCRIPT,200,500);
+    context.fillText(props.PLACE,250,80);
+    context.fillText(props.TEMP+" °C",250,500);
+    context.fillText(props.DESCRIPT,20,500);
   });
   function drawStarr(x, y, radius, radius_c, sides, fillColor, ctx) {
     var points = sides;
@@ -76,5 +76,5 @@ export default function Canvasc(props) {
     ctx.closePath();
     if (fillColor) ctx.fill();
   }
-  return <canvas ref={canvasRef} width={Width-16} height={600} />;
+  return <canvas class = "cloud"ref={canvasRef} width={Width-16} height={600} />;
 }

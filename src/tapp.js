@@ -50,7 +50,7 @@ export default function Canvas(props) {
     <div>
       <Child counter={counter} currentTimer={timer.current} />
       {sunny ? <Canvass COUNT={counter} PLACE={props.PLACE} TEMP ={props.TEMP} DESCRIPT={props.DES}/> : null}
-      {cloud ? <Canvasc COUNT={counter} PLACE={props.PLACE} TEMP ={props.TEMP} DESCRIPT={props.DES}/> : null}
+      {cloud ?  <div class = "cloud"><Canvasc COUNT={counter} PLACE={props.PLACE} TEMP ={props.TEMP} DESCRIPT={props.DES}/></div> : null}
       {fog ? <Canvasf COUNT={counter} PLACE={props.PLACE} TEMP ={props.TEMP} DESCRIPT={props.DES}/> : null}
       {rain? <div class = "rain_c"><Canvasr COUNT={counter} PLACE={props.PLACE} TEMP ={props.TEMP} DESCRIPT={props.DES}/> </div>: null}
     </div>
@@ -61,7 +61,6 @@ function Child({ counter, currentTimer }) {
   // this will clearInterval in parent component after counter gets to 5
   useEffect(() => {
     if (counter < 500) return;
-
     clearInterval(currentTimer);
   }, [counter, currentTimer]);
 

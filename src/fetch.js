@@ -5,7 +5,7 @@ const Apps = (props) => {
   // State to store the fetched data
   const [input, setinput] = useState({
     city: "Pratapgarh",
-    state: "Utter Pradesh"})
+    state: "Utter Pradesh"});
   const [Data, setData] = useState([]);
   const[weather_info,setweather] = useState([]);
   const [latitude, setlat] = useState(0);
