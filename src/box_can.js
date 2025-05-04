@@ -8,7 +8,7 @@ export default function Canvasb(props) {
     context.fillStyle = "white";
     context.fill()
     clock(context,props.TEM);
-    context.font = "14px 'Arial Narrow Bold' ";
+    context.font = "15px'Franklin Gothic Medium'";
     context.fillStyle = "black";
     context.fillText(props.DES+": " + Math.floor(props.TEM )+"° C" , 0, 175);
   });
@@ -42,7 +42,7 @@ export default function Canvasb(props) {
       ctx.moveTo(110, 0);
       ctx.lineTo(140, 0);
 
-      ctx.font = "20px Arial";
+      ctx.font = "20px 'Franklin Gothic Medium'";
       ctx.fillStyle = "black";
       if (i === 3) {
         ctx.fillText(-1 * 50 + "°C", 90, -10);

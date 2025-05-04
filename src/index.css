@@ -46,14 +46,14 @@ button:hover {
   top :0;
   width:114px;
   font-size: 15px;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family:'Franklin Gothic Medium';
 }
 .last_p{
   top :0;
   left:0;
   display: flex;
   justify-content: space-around;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family:'Franklin Gothic Medium';
   width:200px;
   font-size: 15px;
 }

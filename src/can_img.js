@@ -7,9 +7,9 @@ export default function Canvasimg(props) {
     const context = canvas.getContext("2d");
     draw(context,props.IMG)
 
-    context.font = "15px 'Arial Narrow Bold' ";
+    context.font = "15px 'Franklin Gothic Medium' ";
     context.fillStyle = "black";
-    context.fillText(props.DESC+": " + props.VAL+ props.UNIT, 15, 163);
+    context.fillText(props.DESC+": " + props.VAL+ props.UNIT, 10, 163);
   });
   function draw(ctx,img_src) {
     ctx.clearRect(0, 0, 160, 175);

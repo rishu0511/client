@@ -6,7 +6,7 @@ export default function Clock(props) {
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-    context.font = "15px 'Arial Narrow Bold' ";
+    context.font = "15px 'Franklin Gothic Medium' ";
     context.fillStyle = "black";
     clock(context,props.NOW);
     const d = new Date(props.NOW*1000);
