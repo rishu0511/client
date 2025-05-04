@@ -75,7 +75,7 @@ export default function App() {
         <Canvasimg IMG={"./icons/air-pressure.png"} DESC={"Air pressure"} VAL={Air_p} X={10}  UNIT= {" Hpa"}/>
         <Canvasimg IMG={"./icons/wind-speed.png"} DESC={"Wind speed"} VAL={wind} X={10}  UNIT= {" m/s"}/>
         <Canvasimg IMG={"./icons/humid.png"} DESC={"Humidity"} VAL={humid} X={10}  UNIT= {" %"}/>
-        <Canvasimg IMG={"./icons/groundlevel.png"} DESC={"Ground level"} VAL={ground_l} X={10}  UNIT= {" meter"}/>
+        <Canvasimg IMG={"./icons/groundlevel.png"} DESC={"Ground level"} VAL={ground_l} X={10}  UNIT= {" m"}/>
         <Canvascimg IMG={"./icons/wind-speed.png"} DESC={"Wind gust"} VAL={gust} X={10} UNIT= {" m/s"}/>
         <Clock NOW={sunr} DES={"Sunrise"} MRDN= {"AM"}/>
         <Clock NOW={suns} DES={"Sunset"} MRDN= {"PM"}/>

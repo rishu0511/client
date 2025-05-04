@@ -21,9 +21,9 @@ export default function Canvasc(props) {
     context.fillStyle = grad;
     context.fillRect(1, 1, width - 20, 600);
     if (canvasRef == null) return;
-    drawStarr(width - 1300 + props.COUNT, 150, 20, 85, 3, "lightblue", context);
+    drawStarr(width - 700 + props.COUNT, 150, 20, 85, 3, "lightblue", context);
     drawStarr(
-      width - 900 + props.COUNT / 6,
+      width - 300 + props.COUNT / 6,
       200,
       35,
       65,
@@ -31,9 +31,9 @@ export default function Canvasc(props) {
       "lightblue",
       context
     );
-    drawStarr(width - 1200, 180, 40, 90, 3, "lightblue", context);
+    drawStarr(width - 600, 180, 40, 90, 3, "lightblue", context);
     drawStarr(
-      width - 800,
+      width - 200,
       180 + props.COUNT / 3,
       50,
       50,
@@ -41,10 +41,10 @@ export default function Canvasc(props) {
       "lightblue",
       context
     );
-    drawStarr(width - 760, 400, 35, 55, 4, "lightblue", context);
-    drawStarr(width - 1010, 230, 20, 95, 3, "lightblue", context);
+    drawStarr(width - 160, 400, 35, 55, 4, "lightblue", context);
+    drawStarr(width - 410, 230, 20, 95, 3, "lightblue", context);
     drawStarr(
-      width - 900,
+      width - 300,
       400 - +props.COUNT / 2,
       50,
       70,

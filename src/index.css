@@ -44,7 +44,7 @@ button:hover {
   display: flex;
   justify-content: center;
   top :0;
-  width:124px;
+  width:114px;
   font-size: 15px;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -54,7 +54,7 @@ button:hover {
   display: flex;
   justify-content: space-around;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  width:100px;
+  width:200px;
   font-size: 15px;
 }
 .rain_c{

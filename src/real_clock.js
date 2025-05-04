@@ -10,8 +10,8 @@ export default function CanvasReal(props) {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
         ctx.save();
-        ctx.clearRect(0, 0, 150, 150);
-        ctx.translate(135, 60);
+        ctx.clearRect(0, 0, 200, 160);
+        ctx.translate(90, 60);
         ctx.scale(0.35, 0.35);
         ctx.rotate(-Math.PI / 2);
         ctx.strokeStyle = "black";
@@ -115,5 +115,5 @@ export default function CanvasReal(props) {
       
   }, [canvasRef]);
 
-  return <canvas ref={canvasRef} width={200} height={160} />;
+  return <canvas ref={canvasRef} width={150} height={160} />;
 }

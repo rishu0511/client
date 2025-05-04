@@ -6,7 +6,7 @@ export default function Clock(props) {
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-    context.font = "12px Arial";
+    context.font = "15px 'Arial Narrow Bold' ";
     context.fillStyle = "black";
     clock(context,props.NOW);
     const d = new Date(props.NOW*1000);
@@ -15,24 +15,24 @@ export default function Clock(props) {
     const now= new Date(DDte);
     const min = now.getMinutes();
     const hr = now.getHours() % 12;
-    context.fillText(props.DES + " "+hr+":"+min +" "+props.MRDN, 20, 160);
+    context.fillText(props.DES + " "+hr+":"+min +" "+props.MRDN, 20, 177);
   });
+ 
   function clock(ctx,DATE) {
     const d = new Date(DATE*1000);
     const date = d.toUTCString();
     const DDte= String(date);
     const now= new Date(DDte);
     ctx.save();
-    ctx.clearRect(0, 0, 270, 250);
-    ctx.translate(75, 75);
-    ctx.scale(0.4, 0.4);
+    ctx.clearRect(0, 0, 175,180);
+    ctx.translate(80, 80);
+    ctx.scale(0.45, 0.45);
     ctx.rotate(-Math.PI / 2);
     ctx.strokeStyle = "black";
     ctx.fillStyle = "white";
     ctx.fill();
     ctx.lineWidth = 8;
     ctx.lineCap = "round";
-  
     // Hour marks
     ctx.save();
     for (let i = 0; i < 12; i++) {
@@ -121,10 +121,10 @@ export default function Clock(props) {
     ctx.beginPath();
     ctx.lineWidth = 3;
     ctx.strokeStyle = "darkblue";
-    ctx.arc(75, 75, 60, 0, Math.PI * 2, true)
+    ctx.arc(80, 80, 67, 0, Math.PI * 2, true)
     ctx.stroke();
     ctx.restore();
   }
   
-  return <canvas ref={canvasRef} width={160} height={160} />;
+  return <canvas ref={canvasRef} width={175} height={180} />;
 }
