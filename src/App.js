@@ -1,5 +1,5 @@
 import "./index.css";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Apps from "./fetch.js";
 import Canvas from "./tapp.js";
 import Canvasb from "./box_can.js";
@@ -8,6 +8,7 @@ import Canvascimg from "./can_cutimg.js";
 import Clock from "./clock.js";
 import CanvasReal from "./real_clock.js"; 
 import Canvasr from "./canvas_r.js";
+
 export default function App() {
     const [place, setplace] = useState("")
     const [lat,setlat] = useState(0)
@@ -27,47 +28,47 @@ export default function App() {
     const [humid,sethumid] = useState(0)
     const [des,setdes] = useState([])
     const [desc,setdesc] = useState('')
-    function set_weather(data){
-        setplace(data.name)
-        const tempe = Object.values(data)[3]
-        const myJSON = JSON.stringify(data);
-        const weathe = data.weather;
-        setdes(data.weather);
-        data.main ? setweath((data.main.temp-273)) :setweath(0) ;
-        data.main ? setmax((data.main.temp_max-273)) : setmax(0) ;
-        data.main ? setmin((data.main.temp_min-273)) : setmin(0);
-        data.main ? setAirp(data.main.pressure): setAirp(0)
-        data.main ? setgrnd(data.main.grnd_level): setgrnd(0)
-        data.main ? setslevel(data.main.sea_level): setslevel(0)
-        data.main ? sethumid(data.main.humidity): sethumid(0)
-        data.wind ? setwind(data.wind.speed) : setwind(0)
-        data.wind ? setgust(data.wind.gust) : setgust(0)
-        data.wind ? setdeg(data.wind.deg) : setdeg(0)
-        data.sys ? setsunrise(data.sys.sunrise) : setsunrise(1000) 
-        data.sys ? setsunset(data.sys.sunset) : setsunset(1000)
-        data.coord? setlat(data.coord.lat):setlat(0)
-        data.coord? setlon(data.coord.lon):setlon(0)
+    const data = useRef({})
+    const [value,setvalue] = useState(0)
+    const ref = useRef(0)
+    useEffect(()=>{
+        ref.current=value
+        setplace(data.current.name)
+        setdes(data.current.weather);
+        data.current.main ? setweath((data.current.main.temp-273)) :setweath(0) ;
+        data.current.main ? setmax((data.current.main.temp_max-273)) : setmax(0) ;
+        data.current.main ? setmin((data.current.main.temp_min-273)) : setmin(0);
+        data.current.main ? setAirp(data.current.main.pressure): setAirp(0)
+        data.current.main ? setgrnd(data.current.main.grnd_level): setgrnd(0)
+        data.current.main ? setslevel(data.current.main.sea_level): setslevel(0)
+        data.current.main ? sethumid(data.current.main.humidity): sethumid(0)
+        data.current.wind ? setwind(data.current.wind.speed) : setwind(0)
+        data.current.wind ? setgust(data.current.wind.gust) : setgust(0)
+        data.current.wind ? setdeg(data.current.wind.deg) : setdeg(0)
+        data.current.sys ? setsunrise(data.current.sys.sunrise) : setsunrise(1000) 
+        data.current.sys ? setsunset(data.current.sys.sunset) : setsunset(1000)
+        data.current.coord? setlat(data.current.coord.lat):setlat(0)
+        data.current.coord? setlon(data.current.coord.lon):setlon(0)
 
-        data.visibility? setvisible(data.visibility) : setvisible(0);
-        data.weather?data.weather.map((element,index)=>{
+        data.current.visibility? setvisible(data.current.visibility) : setvisible(0);
+        data.current.weather?data.current.weather.map((element,index)=>{
             if(index===0){
                 setdesc(element.main)
             }
         }):setdesc("Clear");
-        const d = new Date(data.dt*1000);
-        const date = d.toUTCString();
-        const DDte= String(date);
-        const now= new Date(DDte);
-        const min = now.getMinutes();
-        const hr = now.getHours() % 24;
-        console.log(data)
-        console.log(hr)
-        console.log(min)
+
+    },[value])
+    function set_w(Data){
+        setvalue(value+1)
+        data.current=Data
+    }
+    function set_weather(Data){
+
     }
     return(
     <div class="canvas">
         <Canvas  DESCRIPT={desc} PLACE={place} TEMP={Math.floor(weath)} DES={desc}/>
-        <Apps SETW={set_weather}/>
+        <Apps SETW={set_w}/>
         
         <Canvasb class="Box" TEM={tem_min} DES={"Min temprature"}/>
         <Canvasb TEM={tem_max} DES={"Max temprature"}/>

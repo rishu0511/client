@@ -44,7 +44,7 @@ export default function Canvas(props) {
       setcloud(false);
       setfog(false);
     }
-  });
+  },[props.DESCRIPT]);
 
   return (
     <div>

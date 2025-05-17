@@ -76,5 +76,5 @@ export default function Canvasc(props) {
     ctx.closePath();
     if (fillColor) ctx.fill();
   }
-  return <canvas class = "cloud"ref={canvasRef} width={Width-16} height={600} />;
+  return <canvas class = "cloud"ref={canvasRef} width={Width} height={600} />;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef,useCallback } from "react";
+import React, { useState,useEffect,useRef,useCallback } from "react";
 import axios from "axios";
 
 const Apps = (props) => {
@@ -6,11 +6,14 @@ const Apps = (props) => {
   const [input, setinput] = useState({
     city: "Pratapgarh",
     state: "Utter Pradesh"});
-  const [Data, setData] = useState([]);
+  const[CITY,setcity]=useState('')
+  const[ STATE,setstate]=useState('')
   const[weather_info,setweather] = useState([]);
   const [latitude, setlat] = useState(0);
   const [longitude, setlon] = useState(0);
-  const mainRef = useRef(null);
+  const [count, setCount] = useState(0);
+  const [oprater,setoprater]=useState(false)
+  const Data = useRef({})
   function handleChange(event) {
     const { name, value } = event.target;
     setinput((prevalue) => {
@@ -20,59 +23,29 @@ const Apps = (props) => {
       };
     });
   }
-  // Function to fetch data using Axios
-  const fetchdata = async () => {
-    try {
-      const response = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${input.city}&limit=5&appid=9d159926fb8c9e6cfd91f069d195f1fd`
-      );
-      setData(response.data);
-     
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-    
-  };
-  useEffect(() => {
-    for (let i=0;i<Data.length;i++) {
-      var loc_state = Data[i].state;
-      if(loc_state === input.state){
-        var user_loc= Data[i];
-        
-        setlat(user_loc.lat)
-        setlon(user_loc.lon)
-  
-      }else{
-        var user_loc= Data[0];
-        
-        setlat(user_loc.lat)
-        setlon(user_loc.lon)
-      }
-    }
-  })
-  useEffect(() => {
-    axios.get("https://api.openweathermap.org/data/2.5/weather", {
-      params: {
-        lat: latitude,
-        lon:longitude,
-        appid:"9d159926fb8c9e6cfd91f069d195f1fd"
-      }
-    })
-    .then(({ data }) => {if (mainRef.current) {
-      setweather(data)
-    }})
-    .catch(console.warn)
-    
-  }, [latitude,longitude ])
-  useEffect(() => {
+  const Fetchdata = () => {
+    fetch("http://localhost:8000/message")
+    .then((res) => res.json())
+    .then((data) => setweather(data.info))
     props.SETW(weather_info)
-  },[weather_info]);
-  
+};
+useEffect(() => {
+  fetch("http://localhost:8000/getloc", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      City: input.city,
+      State: input.state,
+    })
+
+  })
+});
+  // Function to fetch data using Axio
   // Call fetchData on component mount
-
   return (
-    <div  ref={mainRef} class="FORM">
-
+    <div  class="FORM">
        <input
           class="Input"
           onChange={handleChange}
@@ -87,8 +60,7 @@ const Apps = (props) => {
           placeholder="State..."
           value={input.state}
         />
-
-          <button class="Input"onClick={fetchdata}>Search</button>
+          <button class="Input"onClick={Fetchdata}>Search</button>
     </div>
   );
 };
