@@ -78,5 +78,5 @@ export default function Canvasr(props) {
       } 
       window.requestAnimationFrame(clock);
   },[canvasRef])
-  return <canvas ref={canvasRef} width={width-16} height={600} />;
+  return <canvas ref={canvasRef} width={width} height={600} />;
 }
